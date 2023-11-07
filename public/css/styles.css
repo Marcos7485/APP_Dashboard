@@ -1,0 +1,96 @@
+* {
+    margin: 0;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100%;
+    background-image: url('/img/2.webp');
+    background-size: cover;
+    background-position: top;
+    background-repeat: no-repeat;
+}
+
+/* Navbar */
+#navbar img {
+    width: 5rem;
+}
+
+#navbar {
+    justify-content: space-between;
+
+    background-color: grey;
+    opacity: 80%;
+    margin-top: -1rem;
+}
+
+#navbar a {
+    font-size: 1.4rem;
+    color: white;
+}
+
+#navbar a:hover {
+    color: orange;
+}
+
+footer {
+    background-color: #333;
+    color: white;
+    opacity: 80%;
+    text-align: center;
+    position: fixed;
+    bottom: 0%;
+    width: 100%;
+}
+
+footer p {
+    margin-top: 1vw;
+}
+
+.busqueda_box {
+    position: absolute;
+    width: 30%;
+    height: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -40%);
+    text-align: center;
+}
+
+.resultado_card {
+    background-color: black;
+    color: white;
+    border-radius: 2rem;
+}
+
+.predios_card {
+    background-color: black;
+    color: white;
+    border-radius: 2rem;
+}
+
+.info-inicio {
+
+    clip-path: polygon(0% 0%, 100% 0%, 100% 75%, 75% 75%, 75% 100%, 50% 75%, 0% 75%);
+}
+
+.lista_nav {
+    text-align: center;
+    text-decoration: none;
+}
+
+.lista_nav ul {
+    list-style-type: none;
+}
+
+.lista_nav li {
+    display: inline-block;
+    /* Mostrar elementos uno al lado del otro */
+    margin-right: 1rem;
+}
+
+.lista_nav li:hover {
+    color: orange;
+}
+
