@@ -9,7 +9,7 @@ class AddCreciToUsersTable extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->string('creci')->nullable()->after('username');
+            $table->string('creci')->nullable()->after('name');
         });
     }
 

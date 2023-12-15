@@ -13,4 +13,22 @@ class DashboardController extends Controller
             return redirect()->route('/');
         }
     }
+
+    public function inscr()
+    {   
+        if (auth()->check()) {
+            return view('dashboard.inscricao');
+        } else {
+            return redirect()->route('/');
+        }
+    }
+
+    public function predio()
+    {
+        if (auth()->check()) {
+            return view('dashboard.predio');
+        } else {
+            return redirect()->route('/');
+        }
+    }
 }

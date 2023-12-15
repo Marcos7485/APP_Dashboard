@@ -20,11 +20,12 @@ class Main extends Controller
 
     public function login(Request $request)
     {
+        
         $credentials = $request->only('email', 'password');
 
         if (Auth::attempt($credentials)) {
             // La autenticación fue exitosa
-            return redirect()->route('dashboard.perfil');
+            return redirect()->route('dashboard');
         }
 
         // La autenticación falló
@@ -39,43 +40,35 @@ class Main extends Controller
         return redirect('/'); // Redirige a la página principal u otra página deseada
     }
 
-    public function inscr()
+
+
+
+
+
+
+
+
+
+
+
+    public function adicionar()
     {
-        return view('busca_inscr');
+
+        $jsonString = file_get_contents('../Parte_9.json');
+        $data = json_decode($jsonString, true);
+
+
+        foreach ($data as $item) {
+            $propiedad = new Propiedad();
+            $propiedad->Contribuinte = $item['Codigo'];
+            $propiedad->Nome = $item['Nome'];
+            $propiedad->Documento = $item['CPF/CNPJ'];
+            $propiedad->Id_imov = $item['Id_imov'];
+            $propiedad->Imovel = $item['Imovel'];
+            $propiedad->Endereco = $item['Endereco'];
+            $propiedad->save();
+        }
+        die('Pronto9');
     }
-
-    public function predio()
-    {
-        return view('busca_predio');
-    }
-
-
-
-
-
-
-
-
-
-
-    // public function adicionar()
-    // {
-
-    //     $jsonString = file_get_contents('../datos_divididos_9.json');
-    //     $data = json_decode($jsonString, true);
-
-
-    //     foreach ($data as $item) {
-    //         $propiedad = new Propiedad();
-    //         $propiedad->Contribuinte = $item['Codigo'];
-    //         $propiedad->Nome = $item['Nome'];
-    //         $propiedad->Documento = $item['CPF/CNPJ'];
-    //         $propiedad->Id_imov = json_encode($item['Id_imov']);
-    //         $propiedad->Imovel = json_encode($item['Imovel']);
-    //         $propiedad->Endereco = json_encode($item['Endereco']);
-    //         $propiedad->save();
-    //     }
-    //     die('Pronto');
-    // }
 
 }

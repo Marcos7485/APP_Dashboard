@@ -16,9 +16,9 @@ return new class extends Migration
             $table->string('Contribuinte')->nullable();
             $table->string('Nome')->nullable();
             $table->string('Documento')->nullable();
-            $table->json('Id_imov');
-            $table->json('Imovel');
-            $table->json('Endereco');
+            $table->string('Id_imov');
+            $table->string('Imovel');
+            $table->string('Endereco');
             $table->timestamps();
         });
     }

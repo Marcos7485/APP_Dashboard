@@ -16,7 +16,7 @@
     <script src="/js/scripts.js"></script>
 </head>
 
-<body class="antialiased">
+<body class="antialiased main_body">
     <header>
         <nav class="navbar navbar-expand-lg navbar-light">
             <div class="collapse navbar-collapse" id="navbar">

@@ -1,3 +1,14 @@
-PERFIL
+@extends('layouts.dash')
+@section('title', 'Perfil')
 
-<a href="/logout"><button class="btn btn-success">Logout</button></a>
+
+@section('content')
+<div class="container-fluid">
+    <h1>Perfil Dashboard</h1>
+</div>
+
+<script>
+
+</script>
+
+@endsection
