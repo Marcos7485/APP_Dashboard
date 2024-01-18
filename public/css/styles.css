@@ -98,49 +98,6 @@ footer p {
     margin-top: 1vw;
 }
 
-.busqueda_box {
-    position: absolute;
-    width: 30%;
-    height: 50%;
-    top: 60%;
-    left: 50%;
-    transform: translate(-50%, -40%);
-    text-align: center;
-}
 
-.resultado_card {
-    background-color: black;
-    color: white;
-    border-radius: 2rem;
-}
 
-.predios_card {
-    background-color: black;
-    color: white;
-    border-radius: 2rem;
-}
-
-.info-inicio {
-
-    clip-path: polygon(0% 0%, 100% 0%, 100% 75%, 75% 75%, 75% 100%, 50% 75%, 0% 75%);
-}
-
-.lista_nav {
-    text-align: center;
-    text-decoration: none;
-}
-
-.lista_nav ul {
-    list-style-type: none;
-}
-
-.lista_nav li {
-    display: inline-block;
-    /* Mostrar elementos uno al lado del otro */
-    margin-right: 1rem;
-}
-
-.lista_nav li:hover {
-    color: orange;
-}
 

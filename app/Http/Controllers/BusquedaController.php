@@ -13,28 +13,6 @@ class BusquedaController extends Controller
         return view("buscar");
     }
 
-    public function terreno($inscr)
-    {
-        // Obtén el número de padron del formulario
-        $numeroPadron = $inscr;
-
-        // Realiza la búsqueda en la base de datos
-        $resultado = Proprietario::where('Imovel', 'like', '%' . $numeroPadron . '.001%')->first();
-
-        if ($resultado) {
-            $nome = $resultado->Nome;
-            $doc = $resultado->Documento;
-            $imov = json_decode($resultado->Imovel, true);
-            $imov_id = json_decode($resultado->Id_imov, true);
-            $endereco = json_decode($resultado->Endereco, true);
-
-            // Devuelve los resultados como JSON
-            return response()->json(['resultados' => [$nome, $doc, $imov, $imov_id, $endereco]]);
-        } else {
-            return response()->json(['resultados' => 'No se encontraron resultados.']);
-        }
-    }
-
     public function predio(Request $request)
     {
         // Obtén el número de padron del formulario
@@ -99,6 +77,37 @@ class BusquedaController extends Controller
             ];
             // Devuelve los resultados como JSON
             return view('propietario', compact('data'));
+        } else {
+            return response()->json(['resultados' => 'No se encontraron resultados.']);
+        }
+    }
+
+    public function search($inscr)
+    {
+        // Obtén el número de padron del formulario
+        $numeroPadron = base64_decode($inscr);
+
+        // Verificar si la cadena comienza con $
+        if (strpos($numeroPadron, '$') === 0) {
+            // Eliminar el primer carácter (símbolo $)
+            $numeroPadron = substr($numeroPadron, 1);
+        }
+
+        // Realiza la búsqueda en la base de datos
+        $resultado = Proprietario::where('Imovel', 'like', '%' . $numeroPadron . '%')->first();
+
+        if ($resultado) {
+            $nome = $resultado->Nome;
+            $doc = $resultado->Documento;
+            $endereco = $resultado->Endereco;
+
+            $data = [
+                'nome' => $nome,
+                'doc' => $doc,
+                'endereco' => $endereco
+            ];
+            // Devuelve los resultados como JSON
+            return response()->json(['data' => $data]);
         } else {
             return response()->json(['resultados' => 'No se encontraron resultados.']);
         }

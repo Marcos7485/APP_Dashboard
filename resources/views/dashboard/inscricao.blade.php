@@ -4,6 +4,11 @@
 
 @section('content')
 <div class="busqueda_box">
+
+    <div class="row">
+        <h1>Tokens: {{ $tokens['total'] }}</h1>
+    </div>
+    <br>
     <form id="busca-form">
         @csrf
         <table class="table">
@@ -38,7 +43,7 @@
             let numeroPadron = $('#numeroPadron').val();
 
             if (numeroPadron) {
-                $.get('/terreno/' + numeroPadron, function(data) {
+                $.get('/search/' + numeroPadron, function(data) {
                     $('#resultado').html('<p>Proprietario: ' + data.resultados[0] + '</p>' + '<p>CPF/CNPJ: ' + data.resultados[1] + '</p>' + '<p>Imovel: ' + data.resultados[2] + '</p>' + '<p>ID do imovel: ' + data.resultados[3] + '</p>' + '<p>Endereço: ' + data.resultados[4] + '</p>');
 
                     // Puedes agregar enlaces para descargar el PDF y otros aquí si es necesario

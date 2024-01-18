@@ -3,6 +3,11 @@
 
 @section('content')
 <div class="busqueda_box">
+
+    <div class="row">
+        <h1>Tokens: {{ $tokens['total'] }}</h1>
+    </div>
+    <br>
     <form id="busca-form" action="/predio" method="POST">
         @csrf <!-- Token CSRF -->
         @method('POST') <!-- Método HTTP -->
