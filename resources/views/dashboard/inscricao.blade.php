@@ -43,10 +43,18 @@
             let numeroPadron = $('#numeroPadron').val();
 
             if (numeroPadron) {
-                $.get('/search/' + numeroPadron, function(data) {
-                    $('#resultado').html('<p>Proprietario: ' + data.resultados[0] + '</p>' + '<p>CPF/CNPJ: ' + data.resultados[1] + '</p>' + '<p>Imovel: ' + data.resultados[2] + '</p>' + '<p>ID do imovel: ' + data.resultados[3] + '</p>' + '<p>Endereço: ' + data.resultados[4] + '</p>');
+                $.get('/search/' + numeroPadron, function(response) {
+                    let data = response.data;
 
-                    // Puedes agregar enlaces para descargar el PDF y otros aquí si es necesario
+                    if (response.resultados != 'Nao tem saldo suficiente') {
+                        $('#resultado').html('<p>Propietario: ' + data.nome + '</p>' +
+                            '<p>CPF/CNPJ: ' + data.doc + '</p>' +
+                            '<p>Endereço: ' + data.endereco + '</p>');
+                    } else {
+                        $('#resultado').html('<p>' + response.resultados + '</p>');
+                    }
+
+
                 }).fail(function() {
                     $('#resultado').html('Error al obtener el valor.');
                 });

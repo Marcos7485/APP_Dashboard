@@ -33,7 +33,7 @@
 
     <div id="sidebar">
         <a href="/dashboard">Perfil</a>
-        <a href="/inscricao">Buscar Prorpiedade</a>
+        <a href="/inscricao">Buscar Propriedade</a>
         <a href="/predio">Buscar Predio</a>
         <a href="/token">Tokens</a>
         <a href="/historial">Historial</a>
